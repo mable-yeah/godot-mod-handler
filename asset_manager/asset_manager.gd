@@ -88,9 +88,15 @@ static func get_user_directory() -> void:
 
 
 ##initializes the mods list based on user_dir + MOD_FOLDER_NAME
-static func init_mod_list():
+static func init_mod_list() -> void:
 	if !mod_list.is_empty(): return
 	mod_list = mod_loader.init_mods()
+
+##free's any temporary zips, this is technically done already when the game closes
+##but occationally some may linger. id reccomend connecting this somewhere just to be sure
+static func free_temp_zips() -> void:
+	mod_loader.temp_zip.temp_zip_folder = null
+
 
 ##asset containers... contain the result of an implementation
 class asset_container:

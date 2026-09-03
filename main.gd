@@ -14,8 +14,10 @@ func _ready() -> void:
 	
 	for mod in AssetManager.mod_list: %list.add_tab(mod.id)
 	re_init()
-	print(AssetManager.get_files_at('res://',AssetManager.open_type.FILES_PATH))
 
+func _notification(what: int) -> void:
+	if what != NOTIFICATION_WM_CLOSE_REQUEST: return
+	AssetManager.free_temp_zips()
 
 func on_tab_re_order(_i) -> void:
 	var mods_by_id:Dictionary[String,mod_loader.mod_package]
