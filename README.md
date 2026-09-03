@@ -4,7 +4,7 @@ code wise the most important functions are:
 ```AssetManager.init_mod_list()```
 to read the mod folders
 
-```AssetManager.verify_asset(path,false)``` 
+```AssetManager.verify_asset(path)``` 
 to load an asset (path can be any theoretically valid path not just res://)
 
 after that each asset is stored within a container so loading it into its proper place is as simple as 
