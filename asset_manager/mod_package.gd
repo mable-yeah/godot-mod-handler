@@ -41,6 +41,7 @@ class mod_package:
 	var meta_path:
 		get():
 			return path.path_join('mod_meta.json')
+	
 	var path := ''
 	var enabled := true
 	

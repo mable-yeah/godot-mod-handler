@@ -8,14 +8,13 @@ const path = "res://shared/testing/test_image.png"
 
 
 func _ready() -> void:
-	#to initialize the mod loader call this!!
-	#(ideally somewhere near the start of the game)
 	#also gets called on the first verify_asset incase it wasnt initialized
 	AssetManager.init_mod_list()
 	%list.active_tab_rearranged.connect(on_tab_re_order)
 	
 	for mod in AssetManager.mod_list: %list.add_tab(mod.id)
 	re_init()
+	print(AssetManager.get_files_at('res://',AssetManager.open_type.FILES_PATH))
 
 
 func on_tab_re_order(_i) -> void:
